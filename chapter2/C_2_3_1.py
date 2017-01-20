@@ -6,7 +6,6 @@ def merge_sort(arr):
     if length == 1:
         return arr
     else:
-        print(arr)
         left = merge_sort(arr[:length//2])
         right = merge_sort(arr[length//2:])
         result = []
@@ -34,4 +33,5 @@ def merge_sort(arr):
 def main():
     print(merge_sort([3,4,5,2,1,4,6,4,6,2,6,7,8,5,2,12,31,52,5]))
 
-main()
+if __name__ == '__main__':
+    main()
