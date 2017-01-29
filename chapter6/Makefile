@@ -6,9 +6,12 @@ all: pre-build main-build post-build
 pre-build:
 	mkdir -p output
 
-main-build: output/Heapsort
+main-build: output/Heapsort output/PriorityQueue
 
-output/Heapsort: Main.cpp Heap.h
+output/Heapsort: main.cpp Heap.h
+	$(CC) $(FLAGS) -o $@ $<
+
+output/PriorityQueue: PriorityQueue.cpp PriorityQueue.h Heap.h
 	$(CC) $(FLAGS) -o $@ $<
 
 post-build:

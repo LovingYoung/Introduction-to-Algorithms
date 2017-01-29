@@ -3,16 +3,22 @@
 
 class Heap{
 public:
-    static const int MAXHEAP = 1;
-    static const int MINHEAP = 2;
+    static const bool MAXHEAP = true;
+    static const bool MINHEAP = false;
 
 public:
-    Heap(int* array, int length, int type=MAXHEAP){
+    Heap(int* array, int length, bool type=MAXHEAP){
         this->array = array;
         this->length = length;
         this->type = type;
         if(type == MAXHEAP) BuildMaxHeap(length);
         else BuildMinHeap(length);
+    }
+
+    Heap(int n, bool type=MAXHEAP){
+        this->array = new int[n];
+        this->length = 0;
+        this->type = MAXHEAP;
     }
 
     void sort(){
@@ -25,12 +31,12 @@ public:
         }
     }
 
-private:
+protected:
     int* array;
     int length;
-    int type;
+    bool type;
 
-private:
+protected:
     void MaxHeapify(int index, int heapsize){
         int left_index = Left(index);
         int right_index = Right(index);
